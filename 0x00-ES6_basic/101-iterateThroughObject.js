@@ -1,5 +1,7 @@
 export default function iterateThroughObject(reportWithIterator) {
-  return Object.values(reportWithIterator.allEmployees)
-    .flatMap(department => department)
-    .join(' | ');
+  const employees = [];
+  for (const item of reportWithIterator) {
+    employees.push(item);
+  }
+  return employees.join(' | ');
 }
