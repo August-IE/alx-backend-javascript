@@ -23,7 +23,7 @@ export default class Airport {
   }
 
   // Gets a string representation of the Airpirt
-  toString() {
-    return `[${this._code}]`;
+  get [Symbol.toStringTag]() {
+    return this._code;
   }
 }
