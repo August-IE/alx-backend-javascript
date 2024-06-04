@@ -2,11 +2,12 @@
 process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
 // Listening for input from the user
-process.stdin.on('data', (chunk) => {
-  const name = chunk.toString().trim();
+process.stdin.on('readable', () => {
+  const chunk = process.stdin.read();
 
-  // Displaying the user's name
-  process.stdout.write(`Your name is: ${name}\n`);
+  if (chunk) {
+    process.stdout.write(`Your name is: ${chunk}`);
+  }
 });
 
 process.stdin.on('end', () => {
